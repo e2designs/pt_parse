@@ -33,7 +33,7 @@ def build_tests(json_results):
             testcase['status'] = 'failed'
             testcase['failing_context'] = test_entry['attributes']['call']['longrepr'].strip()
         else:
-            testcase['failing_context'] = ''
+            testcase['failing_context'] = 'NA'
         testcase_list.append(testcase)
     return testcase_list
 
@@ -82,4 +82,4 @@ if __name__ == '__main__':
 
         post_results(post_item=test_suite, url=url)
         for test in test_list:
-            post_results(post_item=test, url=url)
+            post_results(post_item=test, url=url+'testcase/')
